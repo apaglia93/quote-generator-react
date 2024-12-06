@@ -4,9 +4,17 @@ import QuoteContainer from "./QuoteContainer";
 import Button from './Button'
 import movieQuotes from "../assets/quotes";
 
-const button = document.getElementById('generator-btn')
+const buttonDarkStyle = {
+    background: 'darkblue',
+    color: 'white'
+}
+const buttonLightStyle = {
+    background: 'white',
+    color: 'darkblue'
+}
 
 function GeneratorContainer() {
+    const [buttonStyleState, setButtonStyleState] = useState(buttonDarkStyle)
     const [movieQuoteIndex, setMovieQuoteIndex] = useState()
     const [movieQuote, setMovieQuote] = useState({
         quote: '', 
@@ -30,19 +38,17 @@ function GeneratorContainer() {
     }
 
     const mouseDownHandler = () => {
-        button.style.background = 'white'
-        button.style.color = 'darkblue'
+        setButtonStyleState(buttonLightStyle)
     }
 
     const mouseUpHandler = () => {
-        button.style.background = 'darkblue'
-        button.style.color = 'white'
+        setButtonStyleState(buttonDarkStyle)
     }
 
     return (
         <main className='generator-container'>
             <QuoteContainer quote={movieQuote.quote} movie={movieQuote.title} year={movieQuote.year} />
-            <Button onClick={clickHandler} onMouseDown={mouseDownHandler} onMouseUp={mouseUpHandler} />
+            <Button onClick={clickHandler} onMouseDown={mouseDownHandler} onMouseUp={mouseUpHandler} style={buttonStyleState} />
         </main>
     )
 }
