@@ -6,10 +6,10 @@ import Main from './components/Main'
 
 function App() {
   return (
-    <body className='grid-container'>
+    <>
       <Header />
       <Main />
-    </body>
+    </>
   )
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 
-function Button() {
-    return <button id="generator-btn">Generate</button>
+function Button(props) {
+    return <button id="generator-btn" onClick={props.onClick} onMouseDown={props.onMouseDown} onMouseUp={props.onMouseUp} >Generate</button>
 }
 
 export default Button

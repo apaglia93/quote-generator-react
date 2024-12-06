@@ -1,14 +1,11 @@
 import React from 'react'
 
-function QuoteContainer() {
+function QuoteContainer({quote, movie, year}) {
     return (
         <div className="quote-container">
-            <p id="quote">Press the button to generate a random movie quote!</p>
+            <p id="quote">{quote === '' ? 'Press the button to generate a random movie quote!' : quote}</p>
             <div id="reference-container">
-                <p className="dash">- </p>
-                <p id="movie"></p>
-                <p className="comma">, </p>
-                <p id="year"></p>
+                <p>{movie === '' || !year ? '' : `- ${movie}, ${year}`}</p>
             </div>
         </div>
     )
